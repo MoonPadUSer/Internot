@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="header">
+    <a>Welcome fabian</a>
+    <div class="header-right">
+        <a class="active" href="">New Post</a>
+        <a href="{% url 'users:logout' %}">Logout</a>
+        <a href="{% url 'posts:start' %}">Home</a>
+    </div>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="body">
+        <div>
+            <textarea name="post_text" id="post_text" class='post' placeholder="Type here" rows='20' data-min-rows='20'></textarea>
+        </div>
+
+        <div>
+            <input type="checkbox" id="public_post">Public Post?</input>
+            <button type='submit'>Submit</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
